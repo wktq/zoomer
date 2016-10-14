@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Webnote7</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="screen" title="no title">
+  </head>
+
+  <body>
+    <div id="zoomer" class="zoomer sample-viewer">
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_001.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_002.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_003.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_004.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_005.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_006.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_008.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_009.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_010.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_011.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_012.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_013.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_014.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_015.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_016.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_017.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_018.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_019.jpg" alt="" />
+      <img src="http://www.fashion-press.net/img/news/26037/JWAnderson_SS17_020.jpg" alt="" />
+    </div>
+    <div class="zoomer-modal">
+
+    </div>
+  </body>
+  <style media="screen">
+    .sample-viewer {
+      width: 820px;
+      margin: auto;
+    }
+    .sample-viewer .zoomer-image-wrapper {
+      width: 16%;
+      margin-left: 0.6666666%;
+      margin-bottom: 0.6666666%;
+      position: relative;
+      float: left;
+      cursor: pointer;
+    }
+    .sample-viewer .zoomer-image-wrapper:first-child {
+      margin-left: 0%;
+    }
+    .sample-viewer .zoomer-image-wrapper:nth-child(6n+1) {
+      margin-left: 0%;
+    }
+    .sample-viewer .zoomer-image-wrapper .zoomer-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .zoomer .zoomer-overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      height: 100%;
+      text-align: center;
+      font-size: 32px;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all  0.3s ease;
+      opacity: 0;
+    }
+
+    .zoomer .zoomer-overlay-focused {
+      opacity: 1;
+      font-size: 40px;
+    }
+
+    .zoomer .zoomer-image-wrapper .icon {
+      color: #fff;
+    }
+
+    .zoomer-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,.5);
+    }
+
+    .zoomer-modal img {
+      position: absolute;
+      height: 80vh;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%,-50%);
+      -moz-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+      -o-transform: translate(-50%,-50%);
+      transform: translate(-50%,-50%);
+    }
+
+    .zoomer-close-btn {
+      font-size: 64px;
+      position: absolute;
+      right: 48px;
+      top: 0px;
+      cursor: pointer;
+    }
+
+    .zoomer-prev-btn, .zoomer-next-btn {
+      font-size: 80px;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translate(0%,-50%);
+      -moz-transform: translate(0%,-50%);
+      -ms-transform: translate(0%,-50%);
+      -o-transform: translate(0%,-50%);
+      transform: translate(0%,-50%);
+      cursor: pointer;
+    }
+
+    .zoomer-prev-btn {
+      left: 20%;
+    }
+
+    .zoomer-next-btn {
+      right: 20%;
+    }
+
+    .zoomer-image-number {
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translate(-50%,0%);
+      -moz-transform: translate(-50%,0%);
+      -ms-transform: translate(-50%,0%);
+      -o-transform: translate(-50%,0%);
+      transform: translate(-50%,0%);
+      bottom: 5vh;
+    }
+
+  </style>
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(function(){
+      var imageLength = $('.zoomer').find('img').length + 1;
+
+      $('.zoomer').find('img').wrap('<div class="zoomer-image-wrapper"></div>');
+      $('.zoomer').find('img').addClass('zoomer-image');
+
+      $('.zoomer-modal').html($('#zoomer').html());
+      $('.zoomer-modal').find('img').hide();
+
+      $('.zoomer').find('.zoomer-image-wrapper').prepend('<div class="zoomer-overlay"><i class="icon ion-android-search"></i></div>');
+
+      $('.zoomer-image-wrapper').click(function() {
+        var imageIndex = $('.zoomer-image-wrapper').index(this);
+        openZoomerModal(imageIndex);
+      });
+
+      $('.zoomer-image-wrapper').hover(function() {
+        $(this).find('.zoomer-overlay').toggleClass('zoomer-overlay-focused');
+      });
+
+      function openZoomerModal(index) {
+        $('.zoomer-modal').fadeIn();
+        $('.image-index').html(index + 1);
+        $('.image-length').html(imageLength);
+        $('.zoomer-modal').find('img').hide();
+        $('.zoomer-image-wrapper').removeClass('current-image');
+
+        $('.zoomer-modal').find('img').eq(index).show();
+        $('.zoomer-modal').find('img').eq(index).parents('.zoomer-image-wrapper').addClass('current-image');
+      }
+
+      function closeZoomerModal() {
+        $('.zoomer-modal').fadeOut();
+        $('.zoomer-image-wrapper').removeClass('current-image');
+      }
+
+      $(document).on('click','.zoomer-close-btn',function(){
+        closeZoomerModal();
+      });
+
+      $(document).on('click','.zoomer-prev-btn',function(){
+        var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
+        openZoomerModal(imageIndex - 1);
+      });
+
+      $(document).on('click','.zoomer-next-btn',function(){
+        var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
+        openZoomerModal(imageIndex + 1);
+      });
+    });
+
+    $(window).on("load",function(){
+      var overlayHeight = $('.zoomer-overlay').height();
+
+      $('.zoomer-overlay').css('line-height', overlayHeight + 'px');
+      $('.zoomer-modal').append('<a class="zoomer-close-btn"><i class="icon ion-ios-close-empty"></i></a><a class="zoomer-prev-btn"><i class="icon ion-ios-arrow-left"></i></a><a class="zoomer-next-btn"><i class="icon ion-ios-arrow-right"></i></a><div class="zoomer-image-number"><span class="image-index"></span> / <span class="image-length"></span></div>');
+    });
+
+  </script>
+</html>
