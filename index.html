@@ -291,9 +291,9 @@
     $('.zoomer-modal').bind('touchend', function() {
         var amountMove = touchMoveX - touchStartX;
         if (amountMove > 100) {
-          alert('右');
+          openZoomerModal(3)
         } if (amountMove < -100) {
-          alert('左');
+          openZoomerModal(1)
         } else {
           return false;
         }
