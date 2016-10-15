@@ -291,9 +291,9 @@
     $('.zoomer-modal').bind('touchend', function() {
         var amountMove = touchMoveX - touchStartX;
         if (amountMove > 60) {
-          alert("右");
-
           var index = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
+          alert(index);
+
           $('.zoomer-modal').fadeIn();
           $('.image-index').html(index + 1);
           $('.image-length').html($('.zoomer').find('img').length + 1);
@@ -303,9 +303,9 @@
           $('.zoomer-modal').find('img').eq(index).show();
           $('.zoomer-modal').find('img').eq(index).parents('.zoomer-image-wrapper').addClass('current-image');
         } if (amountMove < -60) {
-          alert("左");
-
           var index = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
+          alert(index);
+
           $('.zoomer-modal').fadeIn();
           $('.image-index').html(index + 1);
           $('.image-length').html($('.zoomer').find('img').length + 1);
@@ -315,7 +315,6 @@
           $('.zoomer-modal').find('img').eq(index).show();
           $('.zoomer-modal').find('img').eq(index).parents('.zoomer-image-wrapper').addClass('current-image');
         } else {
-          alert("移動量が少ない");
         }
     });
 
