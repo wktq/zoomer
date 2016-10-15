@@ -292,7 +292,16 @@
 
     $('.zoomer-modal').bind('touchend', function() {
         event.preventDefault();
-        alert(touchMoveX - touchStartX)
+        var amountMove = touchMoveX - touchStartX;
+        if (amountMove > 60) {
+          var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
+          openZoomerModal(imageIndex + 1);
+        } if (amountMove < -60) {
+          var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
+          openZoomerModal(imageIndex - 1);
+        } else {
+          alert("移動量が少ない");
+        }
     });
 
   </script>
