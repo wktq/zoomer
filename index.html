@@ -192,8 +192,9 @@
         padding: 0 12px;
       }
       .zoomer-close-btn {
-        line-height: 1;
-        right: 24px;
+        right: 0px;
+        top: -12px;
+        padding: 0 24px;
       }
     }
 
@@ -276,8 +277,10 @@
         if (!$(e.target).closest('.zoomer-image').length) {
           if (!$(e.target).closest('.zoomer-prev-btn').length) {
             if (!$(e.target).closest('.zoomer-next-btn').length) {
-              $('.zoomer-modal').fadeOut();
-              $('.zoomer-image-wrapper').removeClass('current-image');
+              if (!$(e.target).closest('.zoomer-close-btn').length) {
+                $('.zoomer-modal').fadeOut();
+                $('.zoomer-image-wrapper').removeClass('current-image');
+              }
             }
           }
         }
@@ -287,8 +290,10 @@
         if (!$(e.target).closest('.zoomer-image').length) {
           if (!$(e.target).closest('.zoomer-prev-btn').length) {
             if (!$(e.target).closest('.zoomer-next-btn').length) {
-              $('.zoomer-modal').fadeOut();
-              $('.zoomer-image-wrapper').removeClass('current-image');
+              if (!$(e.target).closest('.zoomer-close-btn').length) {
+                $('.zoomer-modal').fadeOut();
+                $('.zoomer-image-wrapper').removeClass('current-image');
+              }
             }
           }
         }
