@@ -212,9 +212,11 @@
       $('.zoomer-modal').bind('touchend', function() {
           var amountMove = touchMoveX - touchStartX;
           if (amountMove > 100) {
-            openZoomerModal(3)
+            var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
+            openZoomerModal(imageIndex - 1);
           } if (amountMove < -100) {
-            openZoomerModal(1)
+            var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
+            openZoomerModal(imageIndex + 1);
           } else {
             return false;
           }
