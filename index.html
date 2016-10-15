@@ -213,20 +213,21 @@
       });
 
       $('.zoomer-modal').bind('touchend', function() {
-          var amountMove = touchMoveX - touchStartX;
-          if (amountMove > 60) {
-            if (imageIndex == 0) {
-            } else {
-              openZoomerModal(imageIndex - 1);
-            }
-          } if (amountMove < -60) {
-            if (imageIndex == imageLength-1) {
-            } else {
-              openZoomerModal(imageIndex + 1);
-            }
+        var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
+        var amountMove = touchMoveX - touchStartX;
+        if (amountMove > 60) {
+          if (imageIndex == 0) {
           } else {
-            return false;
+            openZoomerModal(imageIndex - 1);
           }
+        } if (amountMove < -60) {
+          if (imageIndex == imageLength-1) {
+          } else {
+            openZoomerModal(imageIndex + 1);
+          }
+        } else {
+          return false;
+        }
       });
 
       var imageLength = $('.zoomer').find('img').length;
