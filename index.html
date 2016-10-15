@@ -14,6 +14,7 @@
       <img src="https://www.fashion-press.net/img/news/26037/JWAnderson_SS17_004.jpg" alt="" />
       <img src="https://www.fashion-press.net/img/news/26037/JWAnderson_SS17_005.jpg" alt="" />
       <img src="https://www.fashion-press.net/img/news/26037/JWAnderson_SS17_006.jpg" alt="" />
+      <img src="https://www.fashion-press.net/img/news/26037/JWAnderson_SS17_007.jpg" alt="" />
       <img src="https://www.fashion-press.net/img/news/26037/JWAnderson_SS17_008.jpg" alt="" />
       <img src="https://www.fashion-press.net/img/news/26037/JWAnderson_SS17_009.jpg" alt="" />
       <img src="https://www.fashion-press.net/img/news/26037/JWAnderson_SS17_010.jpg" alt="" />
@@ -224,7 +225,7 @@
           }
       });
 
-      var imageLength = $('.zoomer').find('img').length + 1;
+      var imageLength = $('.zoomer').find('img').length;
 
       $('.zoomer').find('img').wrap('<div class="zoomer-image-wrapper"></div>');
       $('.zoomer').find('img').addClass('zoomer-image');
@@ -245,8 +246,8 @@
 
       function openZoomerModal(index) {
         $('.zoomer-modal').fadeIn();
-        $('.image-index').html(index + 1);
-        $('.image-length').html(imageLength);
+        $('.image-index').text(index + 1);
+        $('.image-length').text(imageLength);
         $('.zoomer-modal').find('img').hide();
         $('.zoomer-image-wrapper').removeClass('current-image');
 
@@ -265,12 +266,18 @@
 
       $(document).on('click','.zoomer-prev-btn',function(){
         var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
-        openZoomerModal(imageIndex - 1);
+        if (imageIndex == 0) {
+        } else {
+          openZoomerModal(imageIndex - 1);
+        }
       });
 
       $(document).on('click','.zoomer-next-btn',function(){
         var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
-        openZoomerModal(imageIndex + 1);
+        if (imageIndex == imageLength-1) {
+        } else {
+          openZoomerModal(imageIndex + 1);
+        }
       });
 
       $('.zoomer-modal').on('mousedown', function(e) {
