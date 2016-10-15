@@ -1,0 +1,123 @@
+.zoomer .zoomer-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  line-height: 120px;
+  text-align: center;
+  font-size: 32px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all  0.3s ease;
+  opacity: 0;
+}
+
+.zoomer .zoomer-overlay-focused {
+  opacity: 1;
+  font-size: 40px;
+}
+
+.zoomer .zoomer-image-wrapper .icon {
+  color: #fff;
+}
+
+.zoomer-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.5);
+}
+
+.zoomer-modal img {
+  position: absolute;
+  height: 80vh;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.zoomer-close-btn {
+  font-size: 64px;
+  position: absolute;
+  right: 48px;
+  top: 0px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.zoomer-prev-btn, .zoomer-next-btn {
+  font-size: 80px;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0%,-50%);
+  -moz-transform: translate(0%,-50%);
+  -ms-transform: translate(0%,-50%);
+  -o-transform: translate(0%,-50%);
+  transform: translate(0%,-50%);
+  cursor: pointer;
+}
+
+.zoomer-prev-btn {
+  left: 20%;
+}
+
+.zoomer-next-btn {
+  right: 20%;
+}
+
+.zoomer-image-number {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%,0%);
+  -moz-transform: translate(-50%,0%);
+  -ms-transform: translate(-50%,0%);
+  -o-transform: translate(-50%,0%);
+  transform: translate(-50%,0%);
+  bottom: 5vh;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .zoomer-modal img {
+    position: absolute;
+    height: 95vw;
+    max-width: 80vw;
+    object-fit: scale-down;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+  }
+  .zoomer-prev-btn, .zoomer-next-btn {
+    font-size: 48px;
+    color: #fff;
+  }
+  .zoomer-prev-btn {
+    left: 0px;
+    padding: 0 12px;
+  }
+  .zoomer-next-btn {
+    right: 0px;
+    padding: 0 12px;
+  }
+  .zoomer-close-btn {
+    right: 0px;
+    top: -12px;
+    padding: 0 24px;
+  }
+}
