@@ -281,19 +281,18 @@
     });
 
     $('.zoomer-modal').bind('touchstart', function() {
-        event.preventDefault();
         touchStartX = event.changedTouches[0].pageX;
     });
 
     $('.zoomer-modal').bind('touchmove', function() {
-        event.preventDefault();
         touchMoveX = event.changedTouches[0].pageX;
     });
 
     $('.zoomer-modal').bind('touchend', function() {
-        event.preventDefault();
         var amountMove = touchMoveX - touchStartX;
         if (amountMove > 60) {
+          alert("右");
+
           var index = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
           $('.zoomer-modal').fadeIn();
           $('.image-index').html(index + 1);
@@ -304,6 +303,8 @@
           $('.zoomer-modal').find('img').eq(index).show();
           $('.zoomer-modal').find('img').eq(index).parents('.zoomer-image-wrapper').addClass('current-image');
         } if (amountMove < -60) {
+          alert("左");
+
           var index = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
           $('.zoomer-modal').fadeIn();
           $('.image-index').html(index + 1);
