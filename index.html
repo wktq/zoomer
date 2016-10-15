@@ -200,6 +200,26 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script type="text/javascript">
     $(function(){
+
+      $('.zoomer-modal').bind('touchstart', function() {
+          touchStartX = event.changedTouches[0].pageX;
+      });
+
+      $('.zoomer-modal').bind('touchmove', function() {
+          touchMoveX = event.changedTouches[0].pageX;
+      });
+
+      $('.zoomer-modal').bind('touchend', function() {
+          var amountMove = touchMoveX - touchStartX;
+          if (amountMove > 100) {
+            openZoomerModal(3)
+          } if (amountMove < -100) {
+            openZoomerModal(1)
+          } else {
+            return false;
+          }
+      });
+
       var imageLength = $('.zoomer').find('img').length + 1;
 
       $('.zoomer').find('img').wrap('<div class="zoomer-image-wrapper"></div>');
@@ -280,24 +300,6 @@
       }
     });
 
-    $('.zoomer-modal').bind('touchstart', function() {
-        touchStartX = event.changedTouches[0].pageX;
-    });
-
-    $('.zoomer-modal').bind('touchmove', function() {
-        touchMoveX = event.changedTouches[0].pageX;
-    });
-
-    $('.zoomer-modal').bind('touchend', function() {
-        var amountMove = touchMoveX - touchStartX;
-        if (amountMove > 100) {
-          openZoomerModal(3)
-        } if (amountMove < -100) {
-          openZoomerModal(1)
-        } else {
-          return false;
-        }
-    });
 
   </script>
 </html>
