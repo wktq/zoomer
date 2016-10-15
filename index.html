@@ -215,11 +215,15 @@
       $('.zoomer-modal').bind('touchend', function() {
           var amountMove = touchMoveX - touchStartX;
           if (amountMove > 60) {
-            var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
-            openZoomerModal(imageIndex - 1);
+            if (imageIndex == 0) {
+            } else {
+              openZoomerModal(imageIndex - 1);
+            }
           } if (amountMove < -60) {
-            var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
-            openZoomerModal(imageIndex + 1);
+            if (imageIndex == imageLength-1) {
+            } else {
+              openZoomerModal(imageIndex + 1);
+            }
           } else {
             return false;
           }
