@@ -280,10 +280,19 @@
       }
     });
 
+    $('.zoomer-modal').bind('touchstart', function() {
+        event.preventDefault();
+        touchStartX = event.changedTouches[0].pageX;
+    });
+
     $('.zoomer-modal').bind('touchmove', function() {
         event.preventDefault();
-        alert(event.changedTouches[0].pageX);
+        touchMoveX = event.changedTouches[0].pageX;
+    });
 
+    $('.zoomer-modal').bind('touchend', function() {
+        event.preventDefault();
+        alert(touchStartX + " to " + touchMoveX)
     });
 
   </script>
