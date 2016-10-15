@@ -280,5 +280,11 @@
       }
     });
 
+    $('.zoomer-modal').bind('touchmove', function() {
+        event.preventDefault();
+        alert(event.changedTouches[0].pageX);
+
+    });
+
   </script>
 </html>
