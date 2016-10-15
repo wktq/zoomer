@@ -199,8 +199,6 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script type="text/javascript">
     $(function(){
-
-
       var imageLength = $('.zoomer').find('img').length + 1;
 
       $('.zoomer').find('img').wrap('<div class="zoomer-image-wrapper"></div>');
@@ -257,6 +255,13 @@
 
       $('.zoomer-overlay').css('line-height', overlayHeight + 'px');
       $('.zoomer-modal').append('<a class="zoomer-close-btn"><i class="icon ion-ios-close-empty"></i></a><a class="zoomer-prev-btn"><i class="icon ion-ios-arrow-left"></i></a><a class="zoomer-next-btn"><i class="icon ion-ios-arrow-right"></i></a><div class="zoomer-image-number"><span class="image-index"></span> / <span class="image-length"></span></div>');
+    });
+
+    $('.zoomer-modal').on('click', function(e) {
+      if (!$(e.target).closest('.zoomer-image').length) {
+        $('.zoomer-modal').fadeOut();
+        $('.zoomer-image-wrapper').removeClass('current-image');
+      }
     });
 
   </script>
