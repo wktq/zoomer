@@ -201,6 +201,13 @@
   <script type="text/javascript">
     $(function(){
 
+      $(window).on("load",function(){
+        var overlayHeight = $('.zoomer-overlay').height();
+
+        $('.zoomer-overlay').css('line-height', overlayHeight + 'px');
+        $('.zoomer-modal').append('<a class="zoomer-close-btn"><i class="icon ion-ios-close-empty"></i></a><a class="zoomer-prev-btn"><i class="icon ion-ios-arrow-left"></i></a><a class="zoomer-next-btn"><i class="icon ion-ios-arrow-right"></i></a><div class="zoomer-image-number"><span class="image-index"></span> / <span class="image-length"></span></div>');
+      });
+
       $('.zoomer-modal').bind('touchstart', function() {
           touchStartX = event.changedTouches[0].pageX;
       });
@@ -211,10 +218,10 @@
 
       $('.zoomer-modal').bind('touchend', function() {
           var amountMove = touchMoveX - touchStartX;
-          if (amountMove > 100) {
+          if (amountMove > 60) {
             var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
             openZoomerModal(imageIndex - 1);
-          } if (amountMove < -100) {
+          } if (amountMove < -60) {
             var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
             openZoomerModal(imageIndex + 1);
           } else {
@@ -293,13 +300,6 @@
           }
         }
       }
-    });
-
-    $(window).on("load",function(){
-      var overlayHeight = $('.zoomer-overlay').height();
-
-      $('.zoomer-overlay').css('line-height', overlayHeight + 'px');
-      $('.zoomer-modal').append('<a class="zoomer-close-btn"><i class="icon ion-ios-close-empty"></i></a><a class="zoomer-prev-btn"><i class="icon ion-ios-arrow-left"></i></a><a class="zoomer-next-btn"><i class="icon ion-ios-arrow-right"></i></a><div class="zoomer-image-number"><span class="image-index"></span> / <span class="image-length"></span></div>');
     });
 
   </script>
