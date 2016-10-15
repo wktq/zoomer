@@ -114,6 +114,7 @@
 
     .zoomer-prev-btn, .zoomer-next-btn {
       font-size: 80px;
+      color: #fff;
       position: absolute;
       top: 50%;
       -webkit-transform: translate(0%,-50%);
@@ -141,12 +142,60 @@
       -o-transform: translate(-50%,0%);
       transform: translate(-50%,0%);
       bottom: 5vh;
+      color: #fff;
+    }
+
+    @media screen and (max-width: 768px) {
+      .sample-viewer {
+        width: 100%;
+        margin: auto;
+      }
+      .sample-viewer .zoomer-image-wrapper {
+        width: 32.6666666%;
+        margin-left: 1%;
+        margin-bottom: 1%;
+        position: relative;
+        float: left;
+        cursor: pointer;
+      }
+      .sample-viewer .zoomer-image-wrapper:nth-child(6n+1) {
+        margin-left: 1%;
+      }
+      .sample-viewer .zoomer-image-wrapper:nth-child(3n+1) {
+        margin-left: 0%;
+      }
+      .zoomer-modal img {
+        position: absolute;
+        width: 80vw;
+        object-fit: scale-down;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+      }
+      .zoomer-prev-btn, .zoomer-next-btn {
+        font-size: 48px;
+        color: #fff;
+      }
+      .zoomer-prev-btn {
+        left: 0px;
+        padding: 0 12px;
+      }
+      .zoomer-next-btn {
+        right: 0px;
+        padding: 0 12px;
+      }
     }
 
   </style>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script type="text/javascript">
     $(function(){
+
+
       var imageLength = $('.zoomer').find('img').length + 1;
 
       $('.zoomer').find('img').wrap('<div class="zoomer-image-wrapper"></div>');
@@ -157,7 +206,7 @@
 
       $('.zoomer').find('.zoomer-image-wrapper').prepend('<div class="zoomer-overlay"><i class="icon ion-android-search"></i></div>');
 
-      $('.zoomer-image-wrapper').click(function() {
+      $('.zoomer').find('.zoomer-image-wrapper').click(function() {
         var imageIndex = $('.zoomer-image-wrapper').index(this);
         openZoomerModal(imageIndex);
       });
@@ -195,6 +244,7 @@
         var imageIndex = $('.zoomer-modal').find('.zoomer-image-wrapper').index($('.current-image'));
         openZoomerModal(imageIndex + 1);
       });
+
     });
 
     $(window).on("load",function(){
